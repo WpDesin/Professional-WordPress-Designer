@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anowar Hussain | Web Design & Development</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f62fe;
+            --accent: #10b981;
+            --dark: #161616;
+            --gray: #f5f7fa;
+            --text: #242424;
+            --light-text: #666;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 4px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0353e9;
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #0da271;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, rgba(15, 98, 254, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background-color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .badge i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* All-in-One Package Section */
+        .all-in-one {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .package-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .package-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(15, 98, 254, 0.1);
+        }
+
+        .package-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--dark);
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--light-text);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-features li i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-contact {
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: var(--shadow);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 98, 254, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Referral Section */
+        .referral {
+            padding: 100px 0;
+        }
+
+        .referral-content {
+            background: linear-gradient(135deg, var(--primary) 0%, #0353e9 100%);
+            padding: 50px;
+            border-radius: 10px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .referral-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .referral-form {
+            max-width: 600px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group-full {
+            grid-column: 1 / 3;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .map {
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-contact div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--accent);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Form Status Messages */
+        .form-status {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .form-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content, .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, .about-text {
+                text-align: center;
+            }
+            
+            .hero-badges {
+                justify-content: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .map {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .referral-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group-full {
+                grid-column: 1;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Anowar<span>Hussain</span></a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#all-in-one">All-in-One</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#referral">Referral</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Professional Web Design & Development</h1>
+                <p>Creating stunning, high-performance websites that drive results for your business.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>100+ Websites Launched</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-award"></i>
+                        <span>5+ Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Generated Image September 27, 2025 - 11_16PM.png" alt="Anowar Hussain - Web Designer">
+            </div>
+        </div>
+    </section>
+
+    <!-- All-in-One Package Section -->
+    <section class="all-in-one" id="all-in-one">
+        <div class="container">
+            <div class="section-title">
+                <h2>All-in-One Package</h2>
+                <p>A comprehensive suite of services designed to launch your professional online presence and start your earning journey.</p>
+            </div>
+            <div class="package-grid">
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Free Premium .com Domain</h3>
+                    <p>Your brand's identity with a professional domain name.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Complete Website Creation</h3>
+                    <p>Every tool and page, built with perfection for your business.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Premium Animations & Graphics</h3>
+                    <p>To captivate your visitors and enhance user experience.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Full SEO Setup</h3>
+                    <p>On-Page, Off-Page, Internal & External SEO for better visibility.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Professional Logo & Branding</h3>
+                    <p>For a unique look and feel that represents your business.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Google Search Console Setup</h3>
+                    <p>To get your site indexed and found by search engines.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy Policy + SSL Certificate</h3>
+                    <p>For 100% trust and security for your website visitors.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3>Ads Network Approval Help</h3>
+                    <p>The first step to start earning from your website traffic.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Earning Strategy & Guidance</h3>
+                    <p>Secrets to high income from ads and monetization strategies.</p>
+                </div>
+                <div class="package-item">
+                    <div class="package-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Guaranteed 500+ Visitors</h3>
+                    <p>No full payment until this target is met for your website.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>Comprehensive web solutions to grow your online presence</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>WordPress Design/Redesign</h3>
+                    <p>Custom WordPress websites designed from scratch or existing sites redesigned for better performance and aesthetics.</p>
+                    <div class="service-price">Starting at $200</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>WooCommerce Setup</h3>
+                    <p>Complete eCommerce solutions with WooCommerce, including product setup, payment integration, and shipping configuration.</p>
+                    <div class="service-price">Starting at $300</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Landing Pages</h3>
+                    <p>High-converting landing pages designed to capture leads and drive sales for your marketing campaigns.</p>
+                    <div class="service-price">Starting at $150</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Theme Customization</h3>
+                    <p>Customization of existing WordPress themes to match your brand identity and add specific functionality.</p>
+                    <div class="service-price">Starting at $100</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Speed Optimization</h3>
+                    <p>Website performance optimization to improve loading times, user experience, and search engine rankings.</p>
+                    <div class="service-price">Starting at $120</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Plugin Setup</h3>
+                    <p>Installation and configuration of WordPress plugins to extend your website's functionality.</p>
+                    <div class="service-price">Starting at $80</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pricing Packages</h2>
+                <p>Affordable solutions for businesses of all sizes</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="price">$50</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 1-2 Page Website</li>
+                        <li><i class="fas fa-check"></i> Basic Design</li>
+                        <li><i class="fas fa-check"></i> Mobile Responsive</li>
+                        <li><i class="fas fa-check"></i> Contact Form</li>
+                        <li><i class="fas fa-times"></i> eCommerce Functionality</li>
+                        <li><i class="fas fa-times"></i> SEO Optimization</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Standard</h3>
+                        <div class="price">$500</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 5-7 Page Website</li>
+                        <li><i class="fas fa-check"></i> Custom Design</li>
+                        <li><i class="fas fa-check"></i> Mobile Responsive</li>
+                        <li><i class="fas fa-check"></i> Contact Form</li>
+                        <li><i class="fas fa-check"></i> Basic eCommerce</li>
+                        <li><i class="fas fa-check"></i> SEO Optimization</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="price">$1000</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 10+ Page Website</li>
+                        <li><i class="fas fa-check"></i> Premium Design</li>
+                        <li><i class="fas fa-check"></i> Mobile Responsive</li>
+                        <li><i class="fas fa-check"></i> Advanced Forms</li>
+                        <li><i class="fas fa-check"></i> Full eCommerce</li>
+                        <li><i class="fas fa-check"></i> SEO & Marketing</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Hello! I'm Anowar Hussain, a professional web designer and developer with over 5 years of experience creating beautiful, functional websites for clients across various industries.</p>
+                <p>My expertise includes WordPress design, eCommerce solutions, and custom web applications. I'm passionate about creating digital experiences that not only look great but also deliver measurable results.</p>
+                <p>I believe in clear communication, meeting deadlines, and exceeding client expectations. Let's work together to bring your vision to life!</p>
+                <div class="about-contact">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-info">
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>anowarhussain.ah35@gmail.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+91-910-113-0596</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="Anowar Website Designer.jpeg" alt="Anowar Hussain">
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Portfolio</h2>
+                <p>Check out some of my recent work</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/0f62fe/ffffff?text=Project+1" alt="Project 1" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Ecommerce Website</h3>
+                        <p>Full WooCommerce setup with custom design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/10b981/ffffff?text=Project+2" alt="Project 2" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Website</h3>
+                        <p>Business website with blog and contact forms</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/0f62fe/ffffff?text=Project+3" alt="Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Restaurant Website</h3>
+                        <p>Online menu and reservation system</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/10b981/ffffff?text=Project+4" alt="Project 4" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Portfolio Website</h3>
+                        <p>Personal portfolio for creative professional</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/0f62fe/ffffff?text=Project+5" alt="Project 5" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Blog Website</h3>
+                        <p>WordPress blog with custom theme</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/10b981/ffffff?text=Project+6" alt="Project 6" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Non-Profit Website</h3>
+                        <p>Donation system and event calendar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What my clients say about my work</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <img src="https://placehold.co/100x100/0f62fe/ffffff?text=Client+1" alt="Client" class="testimonial-img">
+                    <p class="testimonial-text">"Anowar delivered an exceptional website for our business. His attention to detail and communication throughout the project was outstanding. I would highly recommend his services!"</p>
+                    <p class="testimonial-author">- Sarah Johnson, CEO of TechSolutions</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://placehold.co/100x100/10b981/ffffff?text=Client+2" alt="Client" class="testimonial-img">
+                    <p class="testimonial-text">"The website Anowar created for us has significantly increased our online sales. His expertise in eCommerce and design is impressive. We'll definitely work with him again."</p>
+                    <p class="testimonial-author">- Michael Chen, Founder of FashionHub</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://placehold.co/100x100/0f62fe/ffffff?text=Client+3" alt="Client" class="testimonial-img">
+                    <p class="testimonial-text">"I'm extremely pleased with the website redesign. Anowar was professional, met all deadlines, and implemented all our requested changes. The result is better than we imagined!"</p>
+                    <p class="testimonial-author">- Emily Rodriguez, Marketing Director</p>
+                </div>
+                <div class="testimonial-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest from the Blog</h2>
+                <p>Insights and tips on web design and development</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://placehold.co/400x200/0f62fe/ffffff?text=Blog+Post+1" alt="Blog Post" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">June 15, 2023</div>
+                        <h3>10 WordPress Plugins Every Website Needs</h3>
+                        <p>Discover the essential plugins that can enhance your WordPress website's functionality and performance.</p>
+                        <a href="https://jobfitr.info/">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://placehold.co/400x200/10b981/ffffff?text=Blog+Post+2" alt="Blog Post" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">May 28, 2023</div>
+                        <h3>How to Improve Your Website's Loading Speed</h3>
+                        <p>Learn practical tips and techniques to optimize your website for faster loading times and better user experience.</p>
+                        <a href="https://freewebsitepagegenerators.blogspot.com/">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://placehold.co/400x200/0f62fe/ffffff?text=Blog+Post+3" alt="Blog Post" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">April 12, 2023</div>
+                        <h3>Design Trends to Watch in 2023</h3>
+                        <p>Stay ahead of the curve with these emerging web design trends that are shaping the digital landscape.</p>
+                        <a href="https://allpdftool.github.io/BestPDF/#tools">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Section -->
+    <section class="referral" id="referral">
+        <div class="container">
+            <div class="referral-content">
+                <h2>Earn 20% Commission as Our Referral Partner</h2>
+                <p>Join our referral program and earn generous commissions for every client you refer to us. It's a great opportunity for digital marketers, freelancers, and agencies to generate additional revenue.</p>
+                
+                <div id="form-status" class="form-status"></div>
+                
+                <form class="referral-form" id="referral-form" action="https://formspree.io/f/xldwkbjr" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company/Agency Name (optional)</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group form-group-full">
+                        <label for="payment">Preferred Payment Method</label>
+                        <select id="payment" name="payment" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="upi">UPI</option>
+                            <option value="bank">Bank Transfer</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="_subject" value="New Referral Partner Registration">
+                    <input type="text" name="_gotcha" style="display:none">
+                    <div class="form-group form-group-full">
+                        <button type="submit" class="btn btn-accent">Become a Referral Partner</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind? Let's discuss how I can help</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contact-form" action="https://formspree.io/f/xldwkbjr" method="POST">
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Your Email</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <input type="hidden" name="_subject" value="New Contact Form Submission">
+                        <input type="text" name="_gotcha" style="display:none">
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201549.35938827574!2d-122.577679756822!3d37.75781499660907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1686126027152!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Anowar Hussain</h4>
+                    <p>Professional web designer and developer specializing in WordPress, eCommerce, and custom web solutions.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#all-in-one">All-in-One</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">WordPress Design</a></li>
+                        <li><a href="#">WooCommerce Setup</a></li>
+                        <li><a href="#">Landing Pages</a></li>
+                        <li><a href="#">Theme Customization</a></li>
+                        <li><a href="#">Speed Optimization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>anowarhussain.ah35@gmail.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+91-910-113-0596</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Anowar Hussain. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            hamburger.innerHTML = navMenu.classList.contains('show') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(n) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[n].classList.add('active');
+            dots[n].classList.add('active');
+            currentTestimonial = n;
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const slideIndex = parseInt(e.target.getAttribute('data-slide'));
+                showTestimonial(slideIndex);
+            });
+        });
+        
+        // Auto rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // Form Handling with Formspree
+        const referralForm = document.getElementById('referral-form');
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        
+        if (referralForm) {
+            referralForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitButton = referralForm.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                // Collect form data
+                const formData = new FormData(referralForm);
+                
+                try {
+                    const response = await fetch(referralForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        formStatus.textContent = 'Thank you for your interest! We will contact you shortly.';
+                        formStatus.classList.add('success');
+                        referralForm.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    formStatus.textContent = 'There was an error submitting the form. Please try again or contact us directly.';
+                    formStatus.classList.add('error');
+                } finally {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    
+                    // Scroll to form status message
+                    formStatus.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Hide status message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                        formStatus.classList.remove('success', 'error');
+                    }, 5000);
+                }
+            });
+        }
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                // Collect form data
+                const formData = new FormData(contactForm);
+                
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        alert('Thank you for your message! I will get back to you as soon as possible.');
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    alert('There was an error submitting the form. Please try again or contact me directly at anowarhussain.ah35@gmail.com');
+                } finally {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }
+            });
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
